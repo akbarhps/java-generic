@@ -112,3 +112,28 @@ public class ArrayHelper {
     }
 }
 ```
+
+---
+
+## Invariant
+
+- Secara default, saat kita membuat generic parameter type, sifat parameter tersebut adalah invariant
+- Invariant artinya tidak boleh di subtitusi dengan subtype(child) ataupun supertype(parent)
+- Artinya saat kita membuat object ```MyData<String>```, object tersebut tidaklah sama dengan ```MyData<Object>``` dan
+  sebaliknya  ```MyData<Object>``` tidak sama dengan ```MyData<String>```
+
+p.s: String merupakan turunan dari Object  
+p.p.s: Harusnya ketika kita bisa casting String ke Object dan sebaliknya
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        MyData<String> dataString = new MyData<>("Akbar");
+        // MyData<Object> dataObject = dataString; // error
+        MyData<Object> dataObject = new MyData<>("Hasadi");
+        // dataString = dataObject // error
+    }
+}
+```
