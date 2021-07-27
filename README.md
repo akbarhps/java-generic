@@ -8,29 +8,6 @@
 - Berbeda dengan tipe data yang kita gunakan di class atau function, generic memungkinkan kita bisa merubah type data
   sesuai yang kita mau
 
-Contoh Generic:
-
-```java
-public class Main {
-    static class Data<T> {
-        private T data;
-
-        public void setData(T data) {
-            this.data = data;
-        }
-
-        public T getData() {
-            return data;
-        }
-    }
-
-    public static void main(String[] args) {
-        Data<String> data = new Data<>();
-        data.setData("Contoh Data");
-    }
-}
-```
-
 ---
 
 ## Generic Class
@@ -48,3 +25,68 @@ public class Main {
 p.s: nama di atas tidak wajib, hanya saja nama di atas sering digunakan  
 p.p.s: nama generic parameter biasanya hanya 1 huruf, hal berjutuan untuk membedakan antara generic parameter type
 dengan class
+
+Contoh:
+
+```java
+static class MyData<T> {
+    private T data;
+
+    public MyData(T data) {
+        this.data = data;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+}
+```
+
+---
+
+## Multiple Parameter Type
+
+- Parameter type di generic class boleh lebih dari satu
+- Namun harus menggunakan nama type berbeda
+
+Contoh:
+
+```java
+public static class MyPair<T, U> {
+    private T first;
+    private U second;
+
+    public MyPair(T first, U second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public T getFirst() {
+        return first;
+    }
+
+    public void setFirst(T first) {
+        this.first = first;
+    }
+
+    public U getSecond() {
+        return second;
+    }
+
+    public void setSecond(U second) {
+        this.second = second;
+    }
+
+    @Override
+    public String toString() {
+        return "MyPair{" +
+                "first=" + first +
+                ", second=" + second +
+                '}';
+    }
+}
+```
