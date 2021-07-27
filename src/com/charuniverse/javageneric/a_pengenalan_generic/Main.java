@@ -1,16 +1,5 @@
-# Java Generic
+package com.charuniverse.javageneric.a_pengenalan_generic;
 
----
-
-## Pengenalan Generic
-
-- Generic adalah kemampuan menambahkan parameter type saat membuat class atau method
-- Berbeda dengan tipe data yang kita gunakan di class atau function, generic memungkinkan kita bisa merubah type data
-  sesuai yang kita mau
-
-Contoh Generic:
-
-```java
 public class Main {
     static class Data<T> {
         private T data;
@@ -27,6 +16,6 @@ public class Main {
     public static void main(String[] args) {
         Data<String> data = new Data<>();
         data.setData("Contoh Data");
+        System.out.println(data.getData());
     }
 }
-```
