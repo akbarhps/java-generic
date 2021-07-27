@@ -1,22 +1,6 @@
 package com.charuniverse.javageneric.b_generic_class;
 
 public class Main {
-    static class MyData<T> {
-        private T data;
-
-        public MyData(T data) {
-            this.data = data;
-        }
-
-        public T getData() {
-            return data;
-        }
-
-        public void setData(T data) {
-            this.data = data;
-        }
-    }
-
     public static void main(String[] args) {
         MyData<String> dataString = new MyData<>("Contoh Data");
         System.out.println(dataString.getData());
