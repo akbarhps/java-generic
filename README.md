@@ -1,5 +1,9 @@
 # Java Generic
 
+Generic programming is a style of computer programming in which algorithms are written in terms of types
+to-be-specified-later that are then instantiated when needed for specific types provided as parameters.
+[Wikipedia](https://en.wikipedia.org/wiki/Generic_programming)
+
 ---
 
 ## Pengenalan Generic
@@ -29,7 +33,7 @@ dengan class
 Contoh:
 
 ```java
-static class MyData<T> {
+public class MyData<T> {
     private T data;
 
     public MyData(T data) {
@@ -56,7 +60,7 @@ static class MyData<T> {
 Contoh:
 
 ```java
-public static class MyPair<T, U> {
+public class MyPair<T, U> {
     private T first;
     private U second;
 
@@ -87,6 +91,24 @@ public static class MyPair<T, U> {
                 "first=" + first +
                 ", second=" + second +
                 '}';
+    }
+}
+```
+
+---
+
+## Generic Method
+
+- Kita juga bisa menggunakan generic parameter pada method
+- Generic parameter type yang kita deklarasikan di method, hanya dapat di akses di method tersebut.
+- Ini cocok jika kita ingin membuat generic method tanpa harus mengubah deklarasi class
+
+Contoh:
+
+```java
+public class ArrayHelper {
+    public static <E> int count(E[] array) {
+        return array.length;
     }
 }
 ```
