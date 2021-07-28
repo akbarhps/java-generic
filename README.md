@@ -119,8 +119,10 @@ public class ArrayHelper {
 - Artinya saat kita membuat object ```MyData<String>```, object tersebut tidaklah sama dengan ```MyData<Object>``` dan
   sebaliknya  ```MyData<Object>``` tidak sama dengan ```MyData<String>```
 
-p.s: String merupakan turunan dari Object  
-p.p.s: Harusnya kita bisa casting String ke Object dan sebaliknya  
+p.s: String merupakan turunan dari Object
+
+p.p.s: Harusnya kita bisa casting String ke Object dan sebaliknya
+
 p.p.p.s: Intinya maksud dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan
 sebaliknya
 
@@ -178,7 +180,8 @@ Contoh:
   memiliki banyak child
 
 p.s: Sebisa mungkin hindari read data, karena supertype(parent) biasanya memiliki banyak subtype(child) hal ini bisa
-menyebabkan terjadinya ```ClassCastException```  
+menyebabkan terjadinya ```ClassCastException```
+
 p.p.s: Error yang terjadi pada Contravariant merupakan runtime error, sehingga ketika harus lebih teliti dalam
 menggunakan Contravariant
 
@@ -203,6 +206,40 @@ public class Main {
     public static void main(String[] args) {
         MyData<Object> dataObject = new MyData<>("Akbar Ganteng");
         cast(dataObject);
+    }
+}
+```
+
+## Bounded Type Parameter
+
+- Kadang kita ingin membatasi data yang boleh digunakan di generic parameter type
+- Kita bisa menambahkan constraint di generic parameter type dengan menyebutkan tipe yang diperbolehkan
+- Secara otomatis, type data yang bisa digunakan adalah type yang sudah kita sebutkan, atau class turunannya
+- Secara default, constraint type untuk generic parameter type adalah Object, sehingga semua tipe data bisa digunakan
+
+Contoh:
+
+```java
+public class NumberData<T extends Number> {
+    private T data;
+
+    public NumberData(T data) {
+        this.data = data;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "DataNumber{" +
+                "data=" + data +
+                '}';
     }
 }
 ```
