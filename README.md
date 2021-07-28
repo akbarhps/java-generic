@@ -1,4 +1,4 @@
-# Java Generic
+# [Java Generic](https://akbarhps.github.io/java-generic/)
 
 Generic programming is a style of computer programming in which algorithms are written in terms of types
 to-be-specified-later that are then instantiated when needed for specific types provided as parameters.
