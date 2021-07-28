@@ -23,7 +23,8 @@ to-be-specified-later that are then instantiated when needed for specific types 
     - S, U, V etc. (2nd, 3rd, 4th types)
 
 p.s: nama di atas tidak wajib, hanya saja nama di atas sering digunakan  
-p.p.s: nama generic parameter biasanya hanya 1 huruf, hal berjutuan untuk membedakan antara generic parameter type
+
+p.p.s: nama generic parameter biasanya hanya 1 huruf, hal ini bertujuan untuk membedakan antara generic parameter type
 dengan class
 
 Contoh:
@@ -123,7 +124,7 @@ p.s: String merupakan turunan dari Object
 
 p.p.s: Harusnya kita bisa casting String ke Object dan sebaliknya
 
-p.p.p.s: Intinya maksud dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan
+p.p.p.s: Inti dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan
 sebaliknya
 
 Contoh:
