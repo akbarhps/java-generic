@@ -321,3 +321,30 @@ public class Main {
     }
 }
 ```
+
+## Type Erasure
+
+- Type Erasure adalah proses pengecekan generic pada saat compile time, dan menghiraukan pengecakan pada saat runtime
+- Type Erasure menjadikan informasi generic yang kita buat akan hilang ketika kode program kita telah di compile menjadi
+  binary file
+- Compiler akan mengubah generic parameter type menjadi type Object
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        MyData dataString = new MyData<>("Data String");
+        // warning karena tidak mendeklarasikan generic type
+        // Raw use of parameterized class 'MyData' 
+
+        MyData<Integer> dataInteger = dataString;
+        // warning lagi karena ketika assign dataString ke dataInteger
+        // Unchecked assignment: 'com.charuniverse.javageneric.b_generic_class.MyData' to 'com.charuniverse
+
+        // Integer integer = dataInteger.getData();
+        // Error ClassCastException
+        // class java.lang.String cannot be cast to class java.lang.Integer (java.lang.String and java.lang.Integer are in module java.base of loader 'bootstrap')
+    }
+}
+```
