@@ -348,3 +348,34 @@ public class Main {
     }
 }
 ```
+
+## Comparable Interface
+
+- Sebelumnya kita sudah tahu bahwa operator perbandingan object menggunakan method equals
+- Sedangkan operator lainnya seperti (>, =, <) bisa kita override dengan cara implement generic interface
+  dari ```Comparable```
+- [Documentation](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/Comparable.html)
+
+Contoh:
+
+```java
+public class Person implements Comparable<Person> {
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.name.compareTo(o.name);
+    }
+}
+```
