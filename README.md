@@ -379,3 +379,31 @@ public class Person implements Comparable<Person> {
     }
 }
 ```
+
+## Comparator Interface
+
+- ```Comparator Interface``` sama dengan ```Comparable```, hanya saja ```Comparator``` digunakan pada class milik orang
+  lain dimana kita tidak bisa merubah source codenya
+- [Documentation](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Comparator.html)
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Anonymous Class
+        Comparator<Person> comparator1 = new Comparator<>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        };
+
+        // Lambda
+        Comparator<Person> comparator2 = (o1, o2) -> o1.getName().compareTo(o2.getName());
+
+        // Comparator.comparing();
+        Comparator<Person> comparator3 = Comparator.comparing(Person::getName);
+    }
+}
+```
