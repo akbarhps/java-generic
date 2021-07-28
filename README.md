@@ -5,7 +5,7 @@ to-be-specified-later that are then instantiated when needed for specific types 
 [Wikipedia](https://en.wikipedia.org/wiki/Generic_programming)
 
 Sumber:  
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=bvWRDAl30Gs" target="_blank">Youtube</a>  
+<a href="https://www.youtube.com/watch?v=bvWRDAl30Gs" target="_blank">Youtube</a>  
 <a href="https://docs.google.com/presentation/d/1f_Xkk8ko9CIRcNhWlx1xtzxtz0BPUqDASzKydK0tL3Q/edit#slide=id.p" target="_blank">Slide</a>
 
 ## Pengenalan Generic
