@@ -113,7 +113,7 @@ public class ArrayHelper {
   sebaliknya  ```MyData<Object>``` tidak sama dengan ```MyData<String>```
 
 p.s: String merupakan turunan dari Object  
-p.p.s: Harusnya ketika kita bisa casting String ke Object dan sebaliknya  
+p.p.s: Harusnya kita bisa casting String ke Object dan sebaliknya  
 p.p.p.s: Intinya maksud dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan sebaliknya
 
 Contoh:
