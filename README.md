@@ -290,3 +290,34 @@ public class Main {
     }
 }
 ```
+
+## Wildcard
+
+- Kadang ada kasus kita tidak perduli dengan generic parameter type pada Object
+- Contohnya ketika kita ingin print data T, maka type parameter type tidaklah penting
+- Wildcard bisa dibuat dengan mengganti generic parameter type dengan karakter ?
+
+p.s: Hindari meng-inisialisasi variable dan data variable dari Wildcard karena kita tidak tahu data apa yang dimasukkan
+sebagai parameter
+
+Contoh:
+
+```java
+import com.charuniverse.javageneric.b_generic_class.MyData;
+
+public class Main {
+    public static void print(MyData<?> myData) {
+        System.out.println(myData);
+    }
+
+    public static void main(String[] args) {
+        MyData<String> dataString = new MyData<>("Ini data string");
+        print(dataString);
+
+        MyData<?> dataFloat = new MyData<>(100.330f);
+        print(dataFloat);
+
+        print(new MyData<>(false));
+    }
+}
+```
