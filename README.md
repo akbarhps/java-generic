@@ -43,6 +43,13 @@ public class MyData<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "MyData{" +
+                "data=" + data +
+                '}';
+    }
 }
 ```
 
@@ -114,7 +121,8 @@ public class ArrayHelper {
 
 p.s: String merupakan turunan dari Object  
 p.p.s: Harusnya kita bisa casting String ke Object dan sebaliknya  
-p.p.p.s: Intinya maksud dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan sebaliknya
+p.p.p.s: Intinya maksud dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan
+sebaliknya
 
 Contoh:
 
@@ -123,9 +131,40 @@ public class Main {
     public static void main(String[] args) {
         MyData<String> dataString = new MyData<>("Akbar");
         // MyData<Object> dataObject = dataString; // error
-      
+
         MyData<Object> dataObject = new MyData<>("Hasadi");
         // dataString = dataObject // error
+    }
+}
+```
+
+## Covariant
+
+- Covariant artinya kita bisa melakukan subtitusi subtype(child) dengan supertype(parent)
+- Caranya agar generic object kita menjadi covariant adalah dengan menggnakan kata kunci (? extends ParentClass)
+- Contohnya ketika kita membuat object ```MyData<String>```, maka bisa di subtitusi
+  dengan ```MyData<? extends Object>```
+- Covariant adalah read-only, jadi kita tidak bisa merubah data generic nya
+
+p.s: Covariant hanya read-only karena kita tidak boleh merubah data subtype(child) setelah di cast menjadi supertype(
+parent), hal tersebut bisa menyebabkan kita merubah string menjadi int, karena kedua type tersebut extend Object (
+turunan dari Object).
+
+Contoh:
+
+```java
+ public class Main {
+    public static void cast(MyData<? extends Object> myData) {
+        MyData<? extends Object> dataObject = myData;
+        System.out.println(dataObject);
+
+        // myData.setData("Hasadi"); // error read-only
+        // myData.setData(102); // error read-only
+    }
+
+    public static void main(String[] args) {
+        MyData<String> dataString = new MyData<>("Akbar");
+        cast(dataString);
     }
 }
 ```

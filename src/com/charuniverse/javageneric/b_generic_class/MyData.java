@@ -14,4 +14,11 @@ public class MyData<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "MyData{" +
+                "data=" + data +
+                '}';
+    }
 }
