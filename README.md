@@ -22,7 +22,7 @@ to-be-specified-later that are then instantiated when needed for specific types 
     - V - Value
     - S, U, V etc. (2nd, 3rd, 4th types)
 
-p.s: nama di atas tidak wajib, hanya saja nama di atas sering digunakan  
+p.s: nama di atas tidak wajib, hanya saja nama di atas sering digunakan
 
 p.p.s: nama generic parameter biasanya hanya 1 huruf, hal ini bertujuan untuk membedakan antara generic parameter type
 dengan class
@@ -124,8 +124,7 @@ p.s: String merupakan turunan dari Object
 
 p.p.s: Harusnya kita bisa casting String ke Object dan sebaliknya
 
-p.p.p.s: Inti dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan
-sebaliknya
+p.p.p.s: Inti dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan sebaliknya
 
 Contoh:
 
@@ -241,6 +240,53 @@ public class NumberData<T extends Number> {
         return "DataNumber{" +
                 "data=" + data +
                 '}';
+    }
+}
+```
+
+## Multiple Bounded Type Parameter
+
+- Kadang kita ingin membatasi lebih dari 1 type parameter
+- Kita bisa menambahkan beberapa bounded type parameter dengan karakter ```&``` setelah bounded type pertama, dst.
+- Bounded type parameter pertama boleh _Class_, tetapi yang kedua dst hanya boleh _Interface_. Hal ini dikarenakan kita
+  hanya boleh memiliki 1 parent class.
+
+p.s: _Multiple Bounded Type Parameter Class_ tersebut hanya bisa digunakan oleh _Parent Class_ dan turunannya yang
+implement semua _Interface_ dari _Multiple Bounded Type Parameter_
+
+Contoh:
+
+```java
+public interface Greetings {
+    void sayHello(String name);
+}
+
+public static abstract class Employee {
+}
+
+public static class JuniorEngineer extends Employee {
+}
+
+public static class SeniorEngineer extends Employee implements Greetings {
+}
+
+public class SeniorData<T extends Employee & Greetings> {
+    private final T data;
+
+    public SeniorData(T data) {
+        this.data = data;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SeniorEngineer se = new SeniorEngineer("Akbar");
+        SeniorData<SeniorEngineer> sd1 = new SeniorData<>(se);
+        se1.sayHello();
+
+        JuniorEngineer je = new JuniorEngineer("Hasadi");
+        // SeniorData<JuniorEngineer> sd2 = new SeniorData<>(je);
+        // error, class JuniorEngineer tidak implement Interface Greetings
     }
 }
 ```
