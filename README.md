@@ -4,15 +4,11 @@ Generic programming is a style of computer programming in which algorithms are w
 to-be-specified-later that are then instantiated when needed for specific types provided as parameters.
 [Wikipedia](https://en.wikipedia.org/wiki/Generic_programming)
 
----
-
 ## Pengenalan Generic
 
 - Generic adalah kemampuan menambahkan parameter type saat membuat class atau method
 - Berbeda dengan tipe data yang kita gunakan di class atau function, generic memungkinkan kita bisa merubah type data
   sesuai yang kita mau
-
----
 
 ## Generic Class
 
@@ -49,8 +45,6 @@ public class MyData<T> {
     }
 }
 ```
-
----
 
 ## Multiple Parameter Type
 
@@ -95,8 +89,6 @@ public class MyPair<T, U> {
 }
 ```
 
----
-
 ## Generic Method
 
 - Kita juga bisa menggunakan generic parameter pada method
@@ -113,8 +105,6 @@ public class ArrayHelper {
 }
 ```
 
----
-
 ## Invariant
 
 - Secara default, saat kita membuat generic parameter type, sifat parameter tersebut adalah invariant
@@ -123,7 +113,8 @@ public class ArrayHelper {
   sebaliknya  ```MyData<Object>``` tidak sama dengan ```MyData<String>```
 
 p.s: String merupakan turunan dari Object  
-p.p.s: Harusnya ketika kita bisa casting String ke Object dan sebaliknya
+p.p.s: Harusnya ketika kita bisa casting String ke Object dan sebaliknya  
+p.p.p.s: Intinya maksud dari invariant itu data subtype(child) tidak bisa di cast menjadi supertype(parent) dan sebaliknya
 
 Contoh:
 
@@ -132,6 +123,7 @@ public class Main {
     public static void main(String[] args) {
         MyData<String> dataString = new MyData<>("Akbar");
         // MyData<Object> dataObject = dataString; // error
+      
         MyData<Object> dataObject = new MyData<>("Hasadi");
         // dataString = dataObject // error
     }
