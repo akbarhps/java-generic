@@ -4,6 +4,10 @@ Generic programming is a style of computer programming in which algorithms are w
 to-be-specified-later that are then instantiated when needed for specific types provided as parameters.
 [Wikipedia](https://en.wikipedia.org/wiki/Generic_programming)
 
+Sumber:  
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=bvWRDAl30Gs" target="_blank">Youtube</a>  
+<a href="https://docs.google.com/presentation/d/1f_Xkk8ko9CIRcNhWlx1xtzxtz0BPUqDASzKydK0tL3Q/edit#slide=id.p" target="_blank">Slide</a>
+
 ## Pengenalan Generic
 
 - Generic adalah kemampuan menambahkan parameter type saat membuat class atau method
