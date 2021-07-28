@@ -144,7 +144,7 @@ public class Main {
 - Caranya agar generic object kita menjadi covariant adalah dengan menggnakan kata kunci (? extends ParentClass)
 - Contohnya ketika kita membuat object ```MyData<String>```, maka bisa di subtitusi
   dengan ```MyData<? extends Object>```
-- Covariant adalah read-only, jadi kita tidak bisa merubah data generic nya
+- Covariant bersifat read-only, jadi kita tidak bisa merubah data generic nya
 
 p.s: Covariant hanya read-only karena kita tidak boleh merubah data subtype(child) setelah di cast menjadi supertype(
 parent), hal tersebut bisa menyebabkan kita merubah string menjadi int, karena kedua type tersebut extend Object (
@@ -165,6 +165,44 @@ Contoh:
     public static void main(String[] args) {
         MyData<String> dataString = new MyData<>("Akbar");
         cast(dataString);
+    }
+}
+```
+
+## Contravariant
+
+- Contravariant artinya kita bisa melakukan subtitusi supertype(parent) dengan subtype(child)
+- Caranya agar generic object kita menjadi contravariant adalah dengan menggunakan kata kunci (? super SubClass)
+- Contohnya ketika kita membuat object ```MyData<Object>```, maka bisa di subtitusi dengan ```MyData<? super String>```
+- Contravariant bersifat read dan write, namun perlu berhati-hati ketika melakukan read, terutama jika parentnya
+  memiliki banyak child
+
+p.s: Sebisa mungkin hindari read data, karena supertype(parent) biasanya memiliki banyak subtype(child) hal ini bisa
+menyebabkan terjadinya ```ClassCastException```  
+p.p.s: Error yang terjadi pada Contravariant merupakan runtime error, sehingga ketika harus lebih teliti dalam
+menggunakan Contravariant
+
+Contoh:
+
+```java
+public class Main {
+    public static void cast(MyData<? super Integer> myData) {
+        System.out.println(myData.getData().getClass());
+        // class java.lang.String
+
+        myData.setData(100);
+        System.out.println(myData.getData().getClass());
+        //class java.lang.Integer
+
+        // Integer dataString = (Integer) myData.getData();
+        // System.out.println(dataString);
+        // Cara diatas berbahaya karena kita tidak bisa memastikan data yang
+        // diterima merupakan Integer (karena dikirim sebagai Object)
+    }
+
+    public static void main(String[] args) {
+        MyData<Object> dataObject = new MyData<>("Akbar Ganteng");
+        cast(dataObject);
     }
 }
 ```
